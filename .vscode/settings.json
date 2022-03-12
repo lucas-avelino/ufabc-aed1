@@ -2,6 +2,7 @@
   "files.associations": {
     "fracoes.h": "c",
     "stdlib.h": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "disciplinas.h": "c"
   }
 }
