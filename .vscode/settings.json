@@ -3,6 +3,9 @@
     "fracoes.h": "c",
     "stdlib.h": "c",
     "stdio.h": "c",
-    "disciplinas.h": "c"
+    "disciplinas.h": "c",
+    "duplicar.h": "c",
+    "intercalar.h": "c",
+    "editar_dna.h": "c"
   }
 }
