@@ -60,8 +60,8 @@ int main(int argc, char const *argv[])
   // linked1[1] = (LinkedNode){'B', NULL};
   // linked1[0].next = &linked1[1];
 
-  LinkedNode *DNA = createLinkedListFromArray("GCGCCTACGATAAGGCGCGCCAACAGGCGCCG");
-  LinkedNode *remove = createLinkedListFromArray("CGCGG");
+  LinkedNode *DNA = createLinkedListFromArray("ACGTAGACGTTCTA");
+  LinkedNode *remove = createLinkedListFromArray("GCA");
   printf("DNA -> ");
   imprimir1(DNA);
   printf("remove -> ");

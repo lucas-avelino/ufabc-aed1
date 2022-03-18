@@ -46,65 +46,43 @@ void clearLinkedNode(LinkedNode *delete)
 
 LinkedNode *editar_dna(LinkedNode *dna_original, LinkedNode *seq_edicao)
 {
-  LinkedNode *actual = dna_original;
-  LinkedNode *prev = NULL;
+  if (dna_original == NULL)
+    return NULL;
+  if (seq_edicao == NULL)
+    return dna_original;
+
   LinkedNode *result = dna_original;
 
-  if (dna_original == NULL)
+  if (genesEqual(dna_original->data, seq_edicao->data) == 1)
   {
-    return NULL;
-  }
-  if (seq_edicao == NULL)
-  {
-    return result;
-  }
-  while (actual != NULL)
-  {
-    if (genesEqual(actual->data, seq_edicao->data) == 1)
+    LinkedNode *comparatorOriginalDNA = dna_original;
+    LinkedNode *comparatorEditSeq = seq_edicao;
+    char found = 0;
+    while (comparatorEditSeq != NULL && comparatorOriginalDNA != NULL && genesEqual(comparatorOriginalDNA->data, comparatorEditSeq->data) == 1)
     {
-      LinkedNode *comparatorOriginalDNA = actual;
-      LinkedNode *comparatorEditSeq = seq_edicao;
-      while (genesEqual(comparatorOriginalDNA->data, comparatorEditSeq->data) == 1)
+      if (comparatorEditSeq->next == NULL)
       {
-        if (comparatorEditSeq->next == NULL)
-        {
-          LinkedNode *temp = comparatorOriginalDNA->next;
-          comparatorOriginalDNA->next = NULL;
-          clearLinkedNode(actual);
-          if (prev != NULL)
-          {
-            prev->next = temp;
-            actual = temp;
-          }
-          else
-          {
-            actual = temp;
-            result = temp;
-          }
-          break;
-        }
-        comparatorOriginalDNA = comparatorOriginalDNA->next;
-        comparatorEditSeq = comparatorEditSeq->next;
-      }
-      if (genesEqual(comparatorOriginalDNA->data, comparatorEditSeq->data) == 0)
-      {
-        if (actual == NULL)
-        {
-          break;
-        }
-        prev = actual;
-        actual = actual->next;
-      }
-    }
-    else
-    {
-      if (actual == NULL)
-      {
+        found = 1;
         break;
       }
-      prev = actual;
-      actual = actual->next;
+      comparatorOriginalDNA = comparatorOriginalDNA->next;
+      comparatorEditSeq = comparatorEditSeq->next;
     }
+    if (found == 1)
+    {
+      LinkedNode *temp = editar_dna(comparatorOriginalDNA->next, seq_edicao);
+      comparatorOriginalDNA->next = NULL;
+      clearLinkedNode(dna_original);
+      return temp;
+    }
+    else if(dna_original->next != NULL)
+    {
+      dna_original->next = editar_dna(dna_original->next, seq_edicao);
+    }
+  }
+  else if (dna_original->next != NULL)
+  {
+    dna_original->next = editar_dna(dna_original->next, seq_edicao);
   }
   return result;
 }
