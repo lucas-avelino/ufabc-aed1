@@ -6,6 +6,7 @@
     "disciplinas.h": "c",
     "duplicar.h": "c",
     "intercalar.h": "c",
-    "editar_dna.h": "c"
+    "editar_dna.h": "c",
+    "type_traits": "c"
   }
 }
