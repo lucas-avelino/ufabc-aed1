@@ -7,6 +7,10 @@
     "duplicar.h": "c",
     "intercalar.h": "c",
     "editar_dna.h": "c",
-    "type_traits": "c"
+    "type_traits": "c",
+    "lista.h": "c",
+    "abb_menor_maior.h": "c",
+    "qtd_nos.h": "c",
+    "abb_chaves_comuns.h": "c"
   }
 }
