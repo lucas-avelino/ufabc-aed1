@@ -11,6 +11,8 @@
     "lista.h": "c",
     "abb_menor_maior.h": "c",
     "qtd_nos.h": "c",
-    "abb_chaves_comuns.h": "c"
+    "abb_chaves_comuns.h": "c",
+    "abb_sucessor_antecessor.h": "c",
+    "abb_string.h": "c"
   }
 }
