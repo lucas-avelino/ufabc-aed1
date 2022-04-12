@@ -1,15 +1,8 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "abb_string.h"
 
 // Helper Functions
-
-void printNode(NoArvore *raiz)
-{
-  printf("<NoArvore>[%p]'%s'\n", raiz, raiz != NULL ? raiz->chave : "NULL");
-}
-
 NoArvore *menor(NoArvore *raiz)
 {
   if (raiz == NULL)
@@ -148,7 +141,7 @@ NoArvore *sucessor(NoArvore *raiz, char *chave)
   char *prevKey = chave;
   char *smallKey = menor(itemParent->dir)->chave;
 
-  while (smallKey <= chave)
+  while (strcmp(smallKey, chave) <= 0)
   {
     if (prevKey < itemParent->chave)
     {
@@ -172,6 +165,9 @@ NoArvore *remover(NoArvore *raiz, char *chave)
 {
   NoArvore *toRemove = buscar(raiz, chave);
   NoArvore *toRemoveParent = buscarPai(raiz, chave);
+  if(toRemove == NULL){
+    return raiz;
+  }
 
   if (toRemoveParent == NULL) // é a raiz
   {
@@ -189,7 +185,6 @@ NoArvore *remover(NoArvore *raiz, char *chave)
       NoArvore *sucParent = buscarPai(raiz, suc->chave);
 
       int strCompare = strcmp(sucParent->chave, suc->chave);
-      printf("%d %p\n", strCompare, sucParent);
       if (strCompare < 0)
         sucParent->dir = NULL;
       else
