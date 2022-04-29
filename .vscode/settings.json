@@ -13,6 +13,9 @@
     "qtd_nos.h": "c",
     "abb_chaves_comuns.h": "c",
     "abb_sucessor_antecessor.h": "c",
-    "abb_string.h": "c"
+    "abb_string.h": "c",
+    "teste_avl.h": "c",
+    "funcao_comparar.h": "c",
+    "insertionsort.h": "c"
   }
 }
